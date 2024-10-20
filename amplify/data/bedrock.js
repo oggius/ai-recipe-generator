@@ -1,6 +1,7 @@
 export function request(ctx) {
+    const { ingredients = [] } = ctx.args;
     // building prompt
-    const prompt = `Suggest a recipe idea using these ingredients: ${ctx.join(", ")}.`;
+    const prompt = `Suggest a recipe idea using these ingredients: ${ingredients.join(", ")}.`;
 
     return {
         resourcePath: `/model/anthropic.claude-3-sonnet-20240229-v1:0/invoke`,
